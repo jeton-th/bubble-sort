@@ -1,14 +1,25 @@
 def bubble_sort(a)
 
-    (a.length-1).times {       
+    swap = 0
+    (a.length-1).times {
+
+        if (swap)
+            swap = 0
+        else
+            break # nothing to swap
+        end
+
         for i in 0...a.length-1
-            a[i], a[i+1] = a[i+1], a[i] if a[i] > a[i+1]
+            if (a[i] > a[i+1]) 
+                a[i], a[i+1] = a[i+1], a[i]
+                swap = 1
+            end
         end
     }
-    a
 
+    return a
 end
 
-a = [9,8,7,1,6]
+a = [99,8,48,12,6]
 
 puts bubble_sort(a)
